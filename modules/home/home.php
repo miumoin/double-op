@@ -2,7 +2,6 @@
 	class home {
 		public function __construct() {
 			//Executes when the class is initiated
-			echo "This is coming from home";
 			$this->mysqli = dbconnect();
 			$this->var = "this is variable 1";
 		}
@@ -16,7 +15,6 @@
 		}
 
 		public function step1_step2() {
-			echo "this is step 2<br>";
 			display_html( 'headers/header_main' );
 
 			$res = $this->mysqli->query("SELECT id, data FROM table1");

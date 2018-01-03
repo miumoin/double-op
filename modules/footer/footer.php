@@ -1,11 +1,11 @@
 		<div class="wrapper">
 			<footer>
 				<div class="container">
-					<?php echo primary_footer(); ?>	
+					Primary footer content
 				</div>
 				<div class="sub-footer">
 					<div class="container">
-						<?php echo secondary_footer(); ?>
+						Secondary footer content
 					</div>
 				</div>
 			</footer>
