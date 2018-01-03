@@ -24,14 +24,6 @@
     //broken useful parts starts from the array position $start
     $start = START;
 
-    $uurl = ""; //universal/global use purpose url
-    $i = $start;
-    while ( $i < count ( $break ) ) {
-        $uurl = $break[$i] . "/";
-        $i++;
-    }
-    $GLOBALS['url'] = $uurl;
-
     /*Start routing*/
     $option = $break[ $start ];
     if ( ( $option != "" ) && ( is_dir ( "modules/" . $option ) ) ) $module = "modules/" . $option;
@@ -52,11 +44,18 @@
         }
 
         /* call method based on URL structure */
-        echo START;
-        echo '<pre>';
-            var_dump( $break );
-        echo '</pre>';
+        $break_points = count( $break );
+        for( $j = ( count( $break ) - START ); $j >= 0; $j-- ) {
+            $break_point_method = '';
+            for( $i = 1; $i < ( $j ); $i++ ) {
+                $break_point_method .= ( $break_point_method != '' ? '_' : '' ) . $break[ START + $i ];
+            }
 
+            if( method_exists( $option_obj, $break_point_method ) ) {
+                $option_obj->$break_point_method();
+                break;
+            }
+        }
 
     }
  ?>

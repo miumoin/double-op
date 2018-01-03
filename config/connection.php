@@ -6,12 +6,12 @@
  * Author: Moin Uddin
  */
  
-define("BASE","https://dropshipr.co/apps/lately");
+define("BASE","https://dinocommerce.com/double-op");
 define("SPICE","ydtfm~");
-define("START", 3);
-define("DB_NAME", "dinocomm_lately");
-define("DB_USER", "dinocomm_lately");
-define("DB_PASSWORD", "Lately@0102");
+define("START", 2);
+define("DB_NAME", "double-op");
+define("DB_USER", "root");
+define("DB_PASSWORD", "123456");
 define("DB_HOST", "localhost");
 date_default_timezone_set('UTC');
 error_reporting(-1);
