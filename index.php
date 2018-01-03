@@ -22,7 +22,7 @@
     $option = $break[ $start ];
     if ( ( $option != "" ) && ( is_dir ( "modules/" . $option ) ) && file_exists( "modules/" . $option . "/" . $option . '.php' ) ) $module = "modules/" . $option;
     elseif( ( $option != "" ) && ( !is_dir ( "modules/" . $option ) ) ) {
-        $option = "error";
+        $option = "error_404";
         $module = "modules/" . $option;
     }
     else {
