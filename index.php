@@ -20,7 +20,11 @@
 
     /*Start routing*/
     $option = $break[ $start ];
-    if ( ( $option != "" ) && ( is_dir ( "modules/" . $option ) ) ) $module = "modules/" . $option;
+    if ( ( $option != "" ) && ( is_dir ( "modules/" . $option ) ) && file_exists( "modules/" . $option . "/" . $option . '.php' ) ) $module = "modules/" . $option;
+    elseif( ( $option != "" ) && ( !is_dir ( "modules/" . $option ) ) ) {
+        $option = "error";
+        $module = "modules/" . $option;
+    }
     else {
         $option = "home";
         $module = "modules/" . $option;
@@ -30,15 +34,7 @@
     /* if a class exists with the string of $option, create the object */
     if( class_exists ( $option ) ) {
         $option_obj = new $option();
-        /* if form is submitted */
-        if( ( isset( $_REQUEST['process'] ) ) && ( method_exists( $option_obj, 'process_' . $_REQUEST['process'] ) ) ) {
-            $process_func = 'process_' . $_REQUEST['process'];
-            $option_obj->$process_func();
-            die();
-        }
-
         /* call method based on URL structure */
-        $break_points = count( $break );
         for( $j = ( count( $break ) - START ); $j >= 0; $j-- ) {
             $break_point_method = '';
             for( $i = 1; $i < ( $j ); $i++ ) {
@@ -51,5 +47,9 @@
             }
         }
 
+        if( ( $break_point_method == '' ) && ( method_exists( $option_obj, $option . '_method' ) ) ) {
+            $break_point_method = $option . '_method';
+            $option_obj->$break_point_method();
+        }
     }
  ?>

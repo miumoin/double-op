@@ -6,6 +6,10 @@
 			$this->var = "this is variable 1";
 		}
 
+		public function home_method() {
+			echo "This is happening by default";
+		}
+
 		public function process_test() {
 			echo "Hi there";
 		}
@@ -35,6 +39,10 @@
 		public function step1_step2_page_1() {
 			global $break;
 			echo "this is the page 1<br>";
+		}
+
+		function __destruct() {
+			echo "Destructing home class";
 		}
 	}
 ?>
