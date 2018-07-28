@@ -6,10 +6,10 @@
  * Author: Moin Uddin
  */
  
-define("BASE","https://dinocommerce.com/double-op");
+define("BASE","https://localhost/doubleop-dev");
 define("SPICE","ydtfm~");
 define("START", 2);
-define("DB_NAME", "double-op");
+define("DB_NAME", "doubleop");
 define("DB_USER", "root");
 define("DB_PASSWORD", "123456");
 define("DB_HOST", "localhost");
